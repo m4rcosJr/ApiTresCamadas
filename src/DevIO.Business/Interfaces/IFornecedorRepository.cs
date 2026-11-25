@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DevIO.Business.Models;
 
 namespace DevIO.Business.Interfaces
 {
-    internal interface IFornecedorRepository
+    public interface IFornecedorRepository : IRepository<Fornecedor>
     {
+        Task<Fornecedor> ObterForncedorEndereco(Guid id);
+        Task<Fornecedor> ObterFornecedorProdutosEndereco(Guid id);
+
+        Task<Endereco> ObterEnderecoPorFornecedor(Guid forncedorId);
     }
 }
