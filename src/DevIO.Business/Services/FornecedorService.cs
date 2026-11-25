@@ -11,24 +11,28 @@ namespace DevIO.Business.Services
         {
             _fornecedorRepository = fornecedorRepository;
         }
-        public Task Adicioanr(Fornecedor fornecedor)
+        public async Task Adicioanr(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            //Validar se a entidade é consistente...
+
+            //Valiadr se já não existe outro fornecedor com o mesmo documento.
+
+            await _fornecedorRepository.Adicionar(fornecedor);
         }
 
-        public Task Atualizar(Fornecedor fornecedor)
+        public async Task Atualizar(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            await _fornecedorRepository.Atualizar(fornecedor);
         }
 
-        public Task Remover(Guid Id)
+        public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            await _fornecedorRepository.Remover(id);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _fornecedorRepository?.Dispose();
         }
 
 
