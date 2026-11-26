@@ -36,8 +36,7 @@ namespace DevIO.Business.Services
 
             if (validator.IsValid) return true;
 
-            //Lançamento de Notificações
-
+            Notificar(validator);
 
             return false;
         }

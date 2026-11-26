@@ -9,6 +9,6 @@ namespace DevIO.Business.Interfaces
 
         Task<Endereco> ObterEnderecoPorFornecedor(Guid forncedorId);
 
-        Task RemoverEnderecoFornecedor(Endereco endereco);
+        Task RemoverEnderecoFornecedor(Endereco? endereco);
     }
 }

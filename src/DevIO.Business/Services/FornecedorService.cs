@@ -8,7 +8,8 @@ namespace DevIO.Business.Services
     {
         private readonly IFornecedorRepository _fornecedorRepository;
 
-        public FornecedorService(IFornecedorRepository fornecedorRepository)
+        public FornecedorService(IFornecedorRepository fornecedorRepository,
+                                          INotificador notificador) : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
         }
@@ -55,11 +56,11 @@ namespace DevIO.Business.Services
                 return;     
             }
 
-            var endereco = _fornecedorRepository.ObterEnderecoPorFornecedor(id);
+            var endereco = await _fornecedorRepository.ObterEnderecoPorFornecedor(id);
 
-            if(endereco == null)
+            if(endereco != null)
             {
-                await _fornecedorRepository.RemoverEnderecoFornecedor(endereco); 
+                await _fornecedorRepository.RemoverEnderecoFornecedor(endereco);
             }
 
             await _fornecedorRepository.Remover(id);
