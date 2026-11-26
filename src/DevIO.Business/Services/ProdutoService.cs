@@ -26,5 +26,9 @@ namespace DevIO.Business.Services
         {
             await _produtoRepository.Remover(id);
         }
+        public void Dispose()
+        {
+            _produtogiRepository?.Dispose();
+        }
     }
 }
