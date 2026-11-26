@@ -55,6 +55,13 @@ namespace DevIO.Business.Services
                 return;     
             }
 
+            var endereco = _fornecedorRepository.ObterEnderecoPorFornecedor(id);
+
+            if(endereco == null)
+            {
+                await _fornecedorRepository.RemoverEnderecoFornecedor(endereco); 
+            }
+
             await _fornecedorRepository.Remover(id);
         }
 

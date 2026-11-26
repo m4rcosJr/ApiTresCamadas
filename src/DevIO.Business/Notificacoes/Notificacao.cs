@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DevIO.Business.Notificacoes
+﻿namespace DevIO.Business.Notificacoes
 {
-    internal class Notificacao
+    public class Notificacao
     {
+        public Notificacao(string mensagem)
+        {
+            Mensagem = mensagem;
+        }
+        public string? Mensagem { get;  }
     }
 }
