@@ -12,19 +12,19 @@ namespace DevIO.Business.Services
             _produtoRepository = produtoRepository;
         }
 
-        public Task Adicioanr(Fornecedor fornecedor)
+        public async Task Adicioanr(Produto produto)
         {
-            throw new NotImplementedException();
+            await _produtoRepository.Adicionar(produto);
         }
 
-        public Task Atualizar(Fornecedor fornecedor)
+        public async Task Atualizar(Produto produto)
         {
-            throw new NotImplementedException();
+            await _produtoRepository.Atualizar(produto);
         }
 
-        public Task Remover(Guid Id)
+        public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            await _produtoRepository.Remover(id);
         }
     }
 }
