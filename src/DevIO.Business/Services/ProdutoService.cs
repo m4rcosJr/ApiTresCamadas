@@ -1,5 +1,6 @@
 ﻿using DevIO.Business.Interfaces;
 using DevIO.Business.Models;
+using DevIO.Business.Models.Validations;
 
 namespace DevIO.Business.Services
 {
@@ -14,11 +15,15 @@ namespace DevIO.Business.Services
 
         public async Task Adicioanr(Produto produto)
         {
+            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;
+
             await _produtoRepository.Adicionar(produto);
         }
 
         public async Task Atualizar(Produto produto)
         {
+            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;   
+
             await _produtoRepository.Atualizar(produto);
         }
 
@@ -28,7 +33,7 @@ namespace DevIO.Business.Services
         }
         public void Dispose()
         {
-            _produtogiRepository?.Dispose();
+            _produtoRepository?.Dispose();
         }
     }
 }

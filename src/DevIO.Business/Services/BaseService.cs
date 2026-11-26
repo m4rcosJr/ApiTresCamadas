@@ -1,9 +1,21 @@
-﻿namespace DevIO.Business.Services
+﻿using DevIO.Business.Models;
+using FluentValidation;
+
+namespace DevIO.Business.Services
 {
     public abstract class BaseService
     {
-        protected bool ExecutarValidação<TV, TE>( TV validacao, TE entidade)
+        protected bool ExecutarValidacao<TV, TE>( TV validacao, TE entidade) 
+            where TV : AbstractValidator<TE>
+            where TE : Entity
         {
+            var validator = validacao.Validate(entidade);
+
+            if (validator.IsValid) return true;
+
+            //Lançamento de Notificações
+
+
             return false;
         }
     }
